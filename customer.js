@@ -109,7 +109,6 @@ function view() {
 };
 
 function order() { // show checkboxes for order
-	showlist();
 	connection.query("SELECT * FROM products", function(err, res1) {
 		if (err) throw err;
 		var results = res1;
@@ -123,7 +122,8 @@ function order() { // show checkboxes for order
 					type: "checkbox",
 					message: "\nPlease select the products you want to purchase.\n(product ID, product name, department, price ($), stock quantity)\n",
 					choices: itemsopt,
-					name: "order"
+					name: "order",
+					pageSize: 40
 				}
 			]).then(function(res) {
 				nestedinquirer(res.order, results);
@@ -193,26 +193,6 @@ function updatedept(dept, cost, price, quant) { // update database "departments"
 		connection.query("UPDATE departments SET total_profit = ? WHERE department_name = ?", [newprofit, dept], function(err, resp) {
 			if (err) throw err;
 		});
-	});
-};
-
-function showlist() { // for user's convenience
-	console.log("\n-------------------------------------------------\n");
-	console.log("For your convenience, here is a list of products for sale.")
-	connection.query("SELECT * FROM products ORDER BY department_name", function(err, results) {
-		if (err) throw err;
-		console.log(
-			"\n" + 
-			Table.print(results, {
-				item_id: {name: "Product ID"},
-				product_name: {name: "Product Name"},
-				department_name: {name: "Department"},
-				price: {name: "Price ($)", printer: Table.number(2)},
-				stock_quantity: {name: "Stock Quantity"}
-			})
-			+ "\n"
-		);
-		console.log("\n-------------------------------------------------\n");
 	});
 };
 

@@ -350,7 +350,8 @@ function showlist() { // for the order of asyncronous functions, addinv() will b
 				product_name: {name: "Product Name"},
 				department_name: {name: "Department"},
 				price: {name: "Price ($)", printer: Table.number(2)},
-				stock_quantity: {name: "Stock Quantity"}
+				stock_quantity: {name: "Stock Quantity"},
+				cost: {name: "Unit Cost", printer: Table.number(2)}
 			})
 			+ "\n"
 		);
