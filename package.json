@@ -1,0 +1,25 @@
+{
+  "name": "a10-bamazon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bamazon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akirasunny/a10-bamazon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akirasunny/a10-bamazon/issues"
+  },
+  "homepage": "https://github.com/akirasunny/a10-bamazon#readme",
+  "dependencies": {
+    "easy-table": "^1.1.0",
+    "inquirer": "^3.2.2",
+    "mysql": "^2.14.1",
+    "sha1": "^1.1.1"
+  }
+}
